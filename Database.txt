@@ -1,0 +1,155 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema online_art_gallery
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema online_art_gallery
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `online_art_gallery` DEFAULT CHARACTER SET utf8 ;
+USE `online_art_gallery` ;
+
+-- -----------------------------------------------------
+-- Table `online_art_gallery`.`add_art_tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_art_gallery`.`add_art_tbl` (
+  `aid` INT(11) NOT NULL AUTO_INCREMENT,
+  `artist_name` VARCHAR(50) NULL DEFAULT NULL,
+  `art_name` VARCHAR(50) NULL DEFAULT NULL,
+  `art_image` VARCHAR(500) NULL DEFAULT NULL,
+  `art_amount` FLOAT NULL DEFAULT NULL,
+  `description` VARCHAR(500) NULL DEFAULT NULL,
+  `cname` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`aid`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 22
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_art_gallery`.`add_category_tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_art_gallery`.`add_category_tbl` (
+  `cid` INT(11) NOT NULL AUTO_INCREMENT,
+  `cname` VARCHAR(50) NULL DEFAULT NULL,
+  `image` VARCHAR(500) NULL DEFAULT NULL,
+  `description` VARCHAR(500) NULL DEFAULT NULL,
+  PRIMARY KEY (`cid`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 10
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_art_gallery`.`admin_signup_tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_art_gallery`.`admin_signup_tbl` (
+  `sid` INT(11) NOT NULL AUTO_INCREMENT,
+  `fullname` VARCHAR(50) NULL DEFAULT NULL,
+  `address` VARCHAR(200) NULL DEFAULT NULL,
+  `contact` BIGINT(10) NULL DEFAULT NULL,
+  `email` VARCHAR(50) NULL DEFAULT NULL,
+  `pass` VARCHAR(8) NULL DEFAULT NULL,
+  PRIMARY KEY (`sid`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_art_gallery`.`art_booking_tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_art_gallery`.`art_booking_tbl` (
+  `bid` INT(11) NOT NULL AUTO_INCREMENT,
+  `fullname` VARCHAR(50) NULL DEFAULT NULL,
+  `address` VARCHAR(200) NULL DEFAULT NULL,
+  `contact` BIGINT(10) NULL DEFAULT NULL,
+  `art_name` VARCHAR(50) NULL DEFAULT NULL,
+  `art_image` VARCHAR(500) NULL DEFAULT NULL,
+  `quantity` INT(9) NULL DEFAULT NULL,
+  `art_amount` FLOAT NULL DEFAULT NULL,
+  `status` VARCHAR(45) NULL DEFAULT NULL,
+  `uid` INT(11) NULL DEFAULT NULL,
+  `bdate` VARCHAR(45) NULL DEFAULT NULL,
+  `tamount` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`bid`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 12
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_art_gallery`.`artist_signup_tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_art_gallery`.`artist_signup_tbl` (
+  `sid` INT(11) NOT NULL AUTO_INCREMENT,
+  `fullname` VARCHAR(50) NULL DEFAULT NULL,
+  `address` VARCHAR(200) NULL DEFAULT NULL,
+  `contact` BIGINT(10) NULL DEFAULT NULL,
+  `email` VARCHAR(50) NULL DEFAULT NULL,
+  `pass` VARCHAR(8) NULL DEFAULT NULL,
+  PRIMARY KEY (`sid`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_art_gallery`.`feedback_tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_art_gallery`.`feedback_tbl` (
+  `fid` INT(11) NOT NULL AUTO_INCREMENT,
+  `fullname` VARCHAR(50) NULL DEFAULT NULL,
+  `email` VARCHAR(50) NULL DEFAULT NULL,
+  `contact` BIGINT(10) NULL DEFAULT NULL,
+  `message` VARCHAR(500) NULL DEFAULT NULL,
+  PRIMARY KEY (`fid`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_art_gallery`.`payment_tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_art_gallery`.`payment_tbl` (
+  `pid` INT(11) NOT NULL AUTO_INCREMENT,
+  `card_holder_name` VARCHAR(50) NULL DEFAULT NULL,
+  `card_no` BIGINT(20) NULL DEFAULT NULL,
+  `expiry` DATE NULL DEFAULT NULL,
+  `cvv` INT(5) NULL DEFAULT NULL,
+  `art_amount` FLOAT NULL DEFAULT NULL,
+  `bdate` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`pid`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 9
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_art_gallery`.`user_signup_tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_art_gallery`.`user_signup_tbl` (
+  `sid` INT(11) NOT NULL AUTO_INCREMENT,
+  `fullname` VARCHAR(50) NULL DEFAULT NULL,
+  `address` VARCHAR(200) NULL DEFAULT NULL,
+  `contact` BIGINT(10) NULL DEFAULT NULL,
+  `email` VARCHAR(50) NULL DEFAULT NULL,
+  `pass` VARCHAR(8) NULL DEFAULT NULL,
+  PRIMARY KEY (`sid`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
